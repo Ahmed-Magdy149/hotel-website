@@ -6,71 +6,70 @@ import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 
 const Nav = styled.nav`
-  background-color: rgba(255, 255, 255, 0.95);
-  padding: 1rem 2rem;
+  background-color: transparent;
+  padding: 1.5rem 2rem;
   width: 100%;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 50;
 `;
 
 const Container = styled.div`
-  max-width: 1440px;
+  max-width: 85rem;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
 `;
 
 const Logo = styled(Link)`
-  display: flex;
-  align-items: center;
-
-  &:hover {
-    opacity: 0.9;
-  }
+  display: block;
 `;
 
-const MenuList = styled.div`
+const MenuList = styled.ul`
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
   align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 `;
 
-const MenuItem = styled.div`
+const MenuItem = styled.li`
   position: relative;
 `;
 
 const MenuLink = styled.button`
-  color: #333333;
+  color: white;
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   font-weight: 500;
+  padding: 0.5rem;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.5rem;
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.5rem;
 
-  &:hover {
-    color: #B4916C;
+  &:after {
+    content: '';
+    display: inline-block;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 `;
 
 const MenuNavLink = styled(Link)`
-  color: #333333;
+  color: white;
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   font-weight: 500;
   padding: 0.5rem;
-  display: flex;
-  align-items: center;
-
-  &:hover {
-    color: #B4916C;
-  }
 `;
 
 const Dropdown = styled.div<{ isOpen: boolean }>`
@@ -118,15 +117,14 @@ const RightSection = styled.div`
   gap: 1rem;
 `;
 
-const SignInButton = styled(Link)`
-  color: #333333;
-  text-decoration: none;
-  font-size: 0.95rem;
+const SignInButton = styled.button`
+  color: white;
+  background: none;
+  border: none;
+  font-size: 0.875rem;
   font-weight: 500;
-
-  &:hover {
-    color: #B4916C;
-  }
+  padding: 0.5rem 1rem;
+  cursor: pointer;
 `;
 
 const BookNowButton = styled(Link)`
@@ -144,17 +142,26 @@ const BookNowButton = styled(Link)`
   }
 `;
 
-const LanguageSelector = styled.button`
-  color: #333333;
+const LanguageButton = styled.button`
+  color: white;
   background: none;
   border: none;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   font-weight: 500;
-  cursor: pointer;
   padding: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 
-  &:hover {
-    color: #B4916C;
+  &:after {
+    content: '';
+    display: inline-block;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 `;
 
@@ -184,7 +191,7 @@ export default function Navigation() {
       <Container>
         <Logo href="/">
           <Image
-            src="/prime-hotels-logo.png"
+            src="/images/Group 2146.png"
             alt="Prime Hotels Logo"
             width={140}
             height={45}
@@ -231,11 +238,11 @@ export default function Navigation() {
         </MenuList>
 
         <RightSection>
-          <SignInButton href="/sign-in">Sign In</SignInButton>
+          <SignInButton>Sign In</SignInButton>
           <BookNowButton href="/book">Book Now</BookNowButton>
-          <LanguageSelector>
+          <LanguageButton>
             EN
-          </LanguageSelector>
+          </LanguageButton>
         </RightSection>
       </Container>
     </Nav>
