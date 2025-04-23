@@ -16,7 +16,8 @@ export default function Home() {
           <div className="hidden md:flex items-center space-x-8">
             <Link href="/hotels" className="text-dark-gray hover:text-primary transition-colors">
               Hotels & Resorts
-            </Link>
+            </Link>      
+            
             <Link href="/dining" className="text-dark-gray hover:text-primary transition-colors">
               Dining
             </Link>
