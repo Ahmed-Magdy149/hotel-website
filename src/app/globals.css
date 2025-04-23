@@ -1,26 +1,143 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --radius: 0.625rem;
+  --background: #FFFFFF;
+  --foreground: #333333;
+  --card: #FFFFFF;
+  --card-foreground: #333333;
+  --popover: #FFFFFF;
+  --popover-foreground: #333333;
+  --primary: #1B3358;
+  --primary-foreground: #FFFFFF;
+  --secondary: #E4A853;
+  --secondary-foreground: #333333;
+  --muted: #666666;
+  --muted-foreground: #333333;
+  --accent: #F6D6D6;
+  --accent-foreground: #333333;
+  --destructive: #FF0000;
+  --border: #CCCCCC;
+  --input: #FFFFFF;
+  --ring: #AAAAAA;
+  --chart-1: #FF0000;
+  --chart-2: #00FF00;
+  --chart-3: #0000FF;
+  --chart-4: #FFFF00;
+  --chart-5: #FF00FF;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #333333;
+  --sidebar-primary: #1B3358;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F6D6D6;
+  --sidebar-accent-foreground: #333333;
+  --sidebar-border: #CCCCCC;
+  --sidebar-ring: #AAAAAA;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #0A1629;
+  --foreground: #FFFFFF;
+  --card: #234175;
+  --card-foreground: #FFFFFF;
+  --popover: #234175;
+  --popover-foreground: #FFFFFF;
+  --primary: #234175;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F5B565;
+  --secondary-foreground: #FFFFFF;
+  --muted: #666666;
+  --muted-foreground: #FFFFFF;
+  --accent: #FFE4E4;
+  --accent-foreground: #FFFFFF;
+  --destructive: #FF0000;
+  --border: #CCCCCC;
+  --input: #FFFFFF;
+  --ring: #AAAAAA;
+  --chart-1: #FF0000;
+  --chart-2: #00FF00;
+  --chart-3: #0000FF;
+  --chart-4: #FFFF00;
+  --chart-5: #FF00FF;
+  --sidebar: #234175;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #F5B565;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #FFE4E4;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #CCCCCC;
+  --sidebar-ring: #AAAAAA;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.btn-secondary:hover {
+  opacity: 0.9;
+}
+
+.section-title {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
 }
