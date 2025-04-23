@@ -6,21 +6,20 @@ import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 
 const Nav = styled.nav`
-  background-color: rgba(35, 54, 89, 0.95);
+  background-color: rgba(255, 255, 255, 0.95);
   padding: 1rem 2rem;
   width: 100%;
   backdrop-filter: blur(8px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  position: relative;
-  z-index: 50;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 `;
 
 const Container = styled.div`
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem 0;
 `;
 
 const Logo = styled(Link)`
@@ -28,13 +27,13 @@ const Logo = styled(Link)`
   align-items: center;
 
   &:hover {
-    opacity: 0.8;
+    opacity: 0.9;
   }
 `;
 
 const MenuList = styled.div`
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   align-items: center;
 `;
 
@@ -43,38 +42,34 @@ const MenuItem = styled.div`
 `;
 
 const MenuLink = styled.button`
-  color: white;
+  color: #333333;
   text-decoration: none;
-  font-size: 0.9rem;
-  padding: 0.5rem 1rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
   background: none;
   border: none;
   cursor: pointer;
-  position: relative;
-
-  &:after {
-    content: '▼';
-    font-size: 0.7rem;
-    margin-top: 2px;
-  }
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
 
   &:hover {
-    color: #c8a97e;
+    color: #B4916C;
   }
 `;
 
 const MenuNavLink = styled(Link)`
-  color: white;
+  color: #333333;
   text-decoration: none;
-  font-size: 0.9rem;
-  padding: 0.5rem 0;
-  display: inline-block;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
 
   &:hover {
-    color: #c8a97e;
+    color: #B4916C;
   }
 `;
 
@@ -83,83 +78,83 @@ const Dropdown = styled.div<{ isOpen: boolean }>`
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  background-color: white;
-  min-width: 500px;
-  padding: 1rem 0;
+  background: white;
   border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  opacity: ${props => props.isOpen ? 1 : 0};
-  visibility: ${props => props.isOpen ? 'visible' : 'hidden'};
-  transition: all 0.3s ease;
-  z-index: 1000;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: ${props => props.isOpen ? 'flex' : 'none'};
+  gap: 2rem;
+  min-width: 400px;
+  margin-top: 0.5rem;
 `;
 
 const DropdownSection = styled.div`
-  padding: 0.8rem 0;
-
-  &:not(:last-child) {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    margin-bottom: 0.5rem;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 `;
 
-const DropdownTitle = styled.div`
-  color: #233659;
-  font-size: 0.85rem;
+const DropdownTitle = styled.h3`
+  color: #B4916C;
+  font-size: 0.9rem;
   font-weight: 600;
-  padding: 0.5rem 1.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
 `;
 
 const DropdownLink = styled(Link)`
-  color: #233659;
+  color: #333333;
   text-decoration: none;
-  font-size: 0.95rem;
-  padding: 0.8rem 1.5rem;
-  display: block;
-  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  padding: 0.25rem 0;
 
   &:hover {
-    background-color: #f5f5f5;
-    color: #c8a97e;
-    padding-left: 2rem;
+    color: #B4916C;
   }
 `;
 
 const RightSection = styled.div`
   display: flex;
   align-items: center;
-  gap: 2rem;
-`;
-
-const LanguageSelector = styled.button`
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-  font-size: 0.9rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem;
-
-  &:hover {
-    color: #c8a97e;
-  }
+  gap: 1rem;
 `;
 
 const SignInButton = styled(Link)`
-  color: white;
+  color: #333333;
   text-decoration: none;
-  font-size: 0.9rem;
-  padding: 0.5rem 1rem;
-  border: 1px solid transparent;
-  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 500;
 
   &:hover {
-    color: #c8a97e;
-    border-color: #c8a97e;
+    color: #B4916C;
+  }
+`;
+
+const BookNowButton = styled(Link)`
+  background-color: #B4916C;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #9A7B5F;
+  }
+`;
+
+const LanguageSelector = styled.button`
+  color: #333333;
+  background: none;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem;
+
+  &:hover {
+    color: #B4916C;
   }
 `;
 
@@ -191,8 +186,8 @@ export default function Navigation() {
           <Image
             src="/prime-hotels-logo.png"
             alt="Prime Hotels Logo"
-            width={120}
-            height={40}
+            width={140}
+            height={45}
             priority
           />
         </Logo>
@@ -237,6 +232,7 @@ export default function Navigation() {
 
         <RightSection>
           <SignInButton href="/sign-in">Sign In</SignInButton>
+          <BookNowButton href="/book">Book Now</BookNowButton>
           <LanguageSelector>
             EN
           </LanguageSelector>

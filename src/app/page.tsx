@@ -3,49 +3,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import Navigation from '@/components/Navigation';
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 z-50 w-full bg-white/90 backdrop-blur-sm border-b border-gray-100">
-        <div className="container flex items-center justify-between py-4">
-          <Link href="/" className="text-2xl font-bold text-secondary">
-            PRIME
-          </Link>        
-          <div className="hidden md:flex items-center space-x-8">
-            <Link href="/hotels" className="text-dark-gray hover:text-primary transition-colors">
-              Hotels & Resorts
-            </Link>      
-            
-            <Link href="/dining" className="text-dark-gray hover:text-primary transition-colors">
-              Dining
-            </Link>
-            <Link href="/wellness" className="text-dark-gray hover:text-primary transition-colors">
-              Wellness
-            </Link>
-            <Link href="/meetings" className="text-dark-gray hover:text-primary transition-colors">
-              Meetings
-            </Link>
-            <Link href="/events" className="text-dark-gray hover:text-primary transition-colors">
-              Events
-            </Link>
-            <Link href="/loyalty" className="text-dark-gray hover:text-primary transition-colors">
-              Loyalty program
-            </Link>
-          </div>
-          <div className="flex items-center space-x-4">
-            <button className="text-dark-gray hover:text-primary transition-colors">
-              Sign in
-            </button>
-            <span className="text-gray-300">|</span>
-            <button className="text-dark-gray hover:text-primary transition-colors">
-              Book Now
-            </button>
-          </div>
-        </div>
-      </nav>
-
+      <Navigation />
+      
       {/* Hero Section */}
       <section className="relative h-screen">
         <div className="relative h-full">
